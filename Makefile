@@ -6,6 +6,7 @@ OBJS_DIR = obj
 SRCS_DIR = src
 CC = clang
 RM := rm -rf
+FUNCTIONS := main.c
 SRCS := ${addprefix ${SRCS_DIR}/,${FUNCTIONS}}
 OBJS := ${addprefix ${OBJS_DIR}/,${SRCS:${SRCS_DIR}/%.c=%.o}}
 
@@ -14,7 +15,7 @@ ${NAME}: ${OBJS} ${MLX}
 
 ${OBJS_DIR}/%.o: ${SRCS_DIR}/%.c
 		@mkdir -p ${OBJS_DIR}
-		${CC} ${CFLAGS} -c $< -o $@
+		${CC} ${CFLAGS} -I. -I${MLX_DIR} -c $< -o $@
 
 ${MLX}:
 		${MAKE} -C ${MLX_DIR}
