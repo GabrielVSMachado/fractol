@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: install dependences
-      run: sudo apt-get install xorg libxext-dev libbsd-dev
+      run: sudo apt-get install libbsd-dev
     - name: git submodule
       run: git submodule update --init
     - name: all
