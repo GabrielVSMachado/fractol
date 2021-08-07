@@ -1,0 +1,4 @@
+fractol
+.cache/
+compile_commands.json
+obj/
