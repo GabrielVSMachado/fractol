@@ -2,15 +2,15 @@ NAME := fractol
 MLX := mlx
 MLX_DIR := ./minilibx-linux
 CFLAGS := -Wall -Werror -Wextra
-OBJS_DIR = ./obj
-SRCS_DIR = ./src
+OBJS_DIR = obj
+SRCS_DIR = src
 CC = clang
 RM := rm -rf
 SRCS := ${addprefix ${SRCS_DIR}/,${FUNCTIONS}}
 OBJS := ${addprefix ${OBJS_DIR}/,${SRCS:${SRCS_DIR}/%.c=%.o}}
 
 ${NAME}: ${OBJS} ${MLX}
-		${CC} ${CFLAGS} ${OBJS} -I${MLX_DIR} -o ${NAME} -L${MLX_DIR} -l${MLX}
+		${CC} ${CFLAGS} ${OBJS} -I. -I${MLX_DIR} -o ${NAME} -L${MLX_DIR} -l${MLX}
 
 ${OBJS_DIR}/%.o: ${SRCS_DIR}/%.c
 		@mkdir -p ${OBJS_DIR}
