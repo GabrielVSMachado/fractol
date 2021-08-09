@@ -1,7 +1,7 @@
 NAME := fractol
-MLX := mlx
 MLX_DIR := ./minilibx-linux
-LIBRARIES  := -l${MLX} -lX11 -lXext
+MLX := ${MLX_DIR}/libmlx.a
+LIBRARIES  := -lmlx -lX11 -lXext
 HEADERS := -I. -I${MLX_DIR}
 CFLAGS := -Wall -Werror -Wextra
 OBJS_DIR = obj
