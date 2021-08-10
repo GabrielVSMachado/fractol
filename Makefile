@@ -20,7 +20,7 @@ ${NAME}: ${OBJS} ${MLX} ${LIBFT}
 
 ${OBJS_DIR}/%.o: ${SRCS_DIR}/%.c
 		@mkdir -p ${OBJS_DIR}
-		${CC} ${CFLAGS} -I. -I${MLX_DIR} -c $< -o $@
+		${CC} ${CFLAGS} ${HEADERS} -c $< -o $@
 
 ${MLX}:
 		${MAKE} -C ${MLX_DIR}
