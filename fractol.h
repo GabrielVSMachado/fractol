@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 16:11:34 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/08/12 20:02:46 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/08/12 20:12:28 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define FALSE 0
 # define ERROR_IN_REAL_PART "Real part are wrong!"
 # define ERROR_IN_IMG_PART "Imaginary part are wrong!"
+# define AVAILABLE_SETS "The available sets are:\n mandelbrot;\n julia.\n"
 
 # include <math.h>
 # include <stdlib.h>
