@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 17:21:49 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/08/12 20:17:42 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/08/12 20:45:52 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ void	check_input(int argc, char **argv, t_fractol *fractol)
 		fractol->flag = mandelbrot;
 	else if (!ft_strcmp(argv[1], "julia"))
 	{
+		if (argc < 4)
+		{
+			printf(FEW_COMPLEX_ARGUMENTS);
+			exit(EXIT_FAILURE);
+		}
 		check_complex(argv[2], argv[3]);
 		fractol->flag = julia;
 		fractol->z.real = ft_atod(argv[2]);
@@ -45,7 +50,7 @@ static void	check_complex(char *real_part, char *imaginary_part)
 			&& *real_part != '+'
 			&& *real_part != '-')
 		{
-			printf("%s\n USE ONE OF THIS FORMATS: +0.0 OR -0.0", ERROR_IN_REAL_PART);
+			printf("%s\n USE ONE OF THIS FORMATS: +0.0 OR -0.0\n", strerror(EINVAL));
 			exit(EXIT_FAILURE);
 		}
 		real_part++;
@@ -57,7 +62,7 @@ static void	check_complex(char *real_part, char *imaginary_part)
 			&& *real_part != '+'
 			&& *real_part != '-')
 		{
-			printf("%s\n USE ONE OF THIS FORMATS: +0.0i OR -0.0i\n", ERROR_IN_IMG_PART);
+			printf("%s\n USE ONE OF THIS FORMATS: +0.0i OR -0.0i\n", strerror(EINVAL));
 			exit(EXIT_FAILURE);
 		}
 		imaginary_part++;
