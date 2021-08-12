@@ -11,7 +11,10 @@ OBJS_DIR = obj
 SRCS_DIR = src
 CC = clang
 RM := rm -rf
-FUNCTIONS := main.c
+
+FUNCTIONS := main.c \
+			 check_input.c
+
 SRCS := ${addprefix ${SRCS_DIR}/,${FUNCTIONS}}
 OBJS := ${addprefix ${OBJS_DIR}/,${SRCS:${SRCS_DIR}/%.c=%.o}}
 
