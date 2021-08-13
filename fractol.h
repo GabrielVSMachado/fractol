@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 16:11:34 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/08/12 20:44:20 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/08/13 13:32:41 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 # define FRACTOL_H
 # define TRUE 1
 # define FALSE 0
-# define AVAILABLE_SETS "The available sets are:\n mandelbrot;\n julia.\n"
-# define FEW_COMPLEX_ARGUMENTS ("THE COMPLEX NUMBER MUST BE GIVEN IN TWO\
-							SEPARATE ARGUMENTS(2, 3).\n \
-							WHICH THE NUMBER 2 ARE THE REAL PART \
-							(+0.0 OR -0.0) AND THE NEXT ARE \
-							THE IMAGINARY PART(+0.0i OR -0.0i)\n")
 
 # include <math.h>
 # include <stdlib.h>
@@ -28,6 +22,7 @@
 # include <string.h>
 # include "mlx.h"
 # include "libft.h"
+# include "errors.h"
 
 typedef struct s_complex
 {
