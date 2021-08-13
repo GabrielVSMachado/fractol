@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 12:27:35 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/08/13 14:02:17 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/08/13 14:13:03 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	error_handler(int n_error, char **to_free)
 {
-	if (*to_free == NULL)
+	if (to_free == NULL)
 	{
 		if (n_error == AVAILABLE_SETS)
 			printf("The available sets are:\n mandelbrot;\n julia.\n");
