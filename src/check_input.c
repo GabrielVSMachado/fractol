@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 17:21:49 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/08/13 18:46:00 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/08/13 19:04:51 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	check_input(int argc, char **argv, t_fractol *fractol)
 		if (!ft_strrchr(argv[3], 'i') || check_complex(argv[3]))
 			error_handler(IMAGINARY_PART, NULL);
 		if (*argv[3] == 'i' || (*argv[3] == '-' && *(argv[3] + 1) == 'i'))
-			fractol->z.imaginary = *argv[3] == 'i'
-				&& (*argv[3] == '-' && *(argv[3] + 1) == 'i') * (-1);
+			fractol->z.imaginary = (*argv[3] == 'i') + ((*argv[3] == '-'
+					&& *(argv[3] + 1) == 'i') * (-1.0));
 		else
 			fractol->z.imaginary = ft_atod(argv[3]);
 		printf("%f\n", fractol->z.imaginary);
