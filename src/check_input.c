@@ -6,12 +6,12 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 17:21:49 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/08/13 14:23:04 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/08/13 18:02:20 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-static void	check_complex(char *a, char *b);
+static int	check_complex(char *b);
 
 void	check_input(int argc, char **argv, t_fractol *fractol)
 {
@@ -21,11 +21,15 @@ void	check_input(int argc, char **argv, t_fractol *fractol)
 	{
 		if (argc < 4)
 			error_handler(COMPLEX_ARGUMENTS, NULL);
-		check_complex(argv[2], argv[3]);
 		fractol->flag = julia;
+		if (check_complex(argv[2]))
+			error_handler(REAL_PART, NULL);
 		fractol->z.real = ft_atod(argv[2]);
-		if (*argv[3] == 'i')
-			fractol->z.imaginary = 1;
+		if (!ft_strrchr(argv[3], 'i') && check_complex(argv[3]))
+			error_handler(IMAGINARY_PART, NULL);
+		if (*argv[3] == 'i' || (*argv[3] == '-' && *(argv[3] + 1) == 'i'))
+			fractol->z.imaginary = *argv[3] == 'i'
+				&& (*argv[3] == '-' && *(argv[3] + 1) == 'i') * (-1);
 		else
 			fractol->z.imaginary = ft_atod(argv[3]);
 	}
@@ -33,25 +37,16 @@ void	check_input(int argc, char **argv, t_fractol *fractol)
 		error_handler(AVAILABLE_SETS, NULL);
 }
 
-static void	check_complex(char *real_part, char *imaginary_part)
+static int	check_complex(char *part)
 {
-	while (*real_part)
+	if (*part == '-' || *part == '+')
+		part++;
+	while (*part)
 	{
-		if (!('0' <= *real_part && *real_part <= '9')
-			&& *real_part != '.'
-			&& *real_part != '+'
-			&& *real_part != '-')
-			error_handler(REAL_PART, NULL);
-		real_part++;
+		if ((!('0' <= *part && *part <= '9') && *part != '.')
+			|| (*part == 'i' && *(part + 1) != '\0'))
+			return (ERROR);
+		part++;
 	}
-	while (*imaginary_part)
-	{
-		if (!('0' <= *imaginary_part && *imaginary_part <= '9')
-			&& *imaginary_part != '.'
-			&& *imaginary_part != '+'
-			&& *imaginary_part != '-'
-			&& *imaginary_part != 'i')
-			error_handler(IMAGINARY_PART, NULL);
-		imaginary_part++;
-	}
+	return (OK);
 }
