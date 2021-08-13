@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 17:21:49 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/08/13 14:01:27 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/08/13 14:23:04 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ void	check_input(int argc, char **argv, t_fractol *fractol)
 		check_complex(argv[2], argv[3]);
 		fractol->flag = julia;
 		fractol->z.real = ft_atod(argv[2]);
-		fractol->z.imaginary = ft_atod(argv[3]);
+		if (*argv[3] == 'i')
+			fractol->z.imaginary = 1;
+		else
+			fractol->z.imaginary = ft_atod(argv[3]);
 	}
 	else
 		error_handler(AVAILABLE_SETS, NULL);
