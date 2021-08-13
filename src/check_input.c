@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 17:21:49 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/08/13 14:00:02 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/08/13 14:01:27 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ static void	check_complex(char *real_part, char *imaginary_part)
 {
 	while (*real_part)
 	{
-		if (!('0' <= *real_part && *real_part <= '9') 
-			&& *real_part != '.' 
+		if (!('0' <= *real_part && *real_part <= '9')
+			&& *real_part != '.'
 			&& *real_part != '+'
 			&& *real_part != '-')
 			error_handler(REAL_PART, NULL);
@@ -43,8 +43,8 @@ static void	check_complex(char *real_part, char *imaginary_part)
 	}
 	while (*imaginary_part)
 	{
-		if (!('0' <= *imaginary_part && *imaginary_part <= '9') 
-			&& *imaginary_part != '.' 
+		if (!('0' <= *imaginary_part && *imaginary_part <= '9')
+			&& *imaginary_part != '.'
 			&& *imaginary_part != '+'
 			&& *imaginary_part != '-'
 			&& *imaginary_part != 'i')
