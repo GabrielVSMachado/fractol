@@ -5,15 +5,17 @@ LIBFT_DIR = ./libft
 LIBFT := ${LIBFT_DIR}/libft.a
 LIBRARIES  := -lft -lmlx -lX11 -lXext
 LIBRARIES_DIR := -L${LIBFT_DIR} -L${MLX_DIR}
-HEADERS := -I. -I${MLX_DIR} -I${LIBFT_DIR}
-CFLAGS := -Wall -Werror -Wextra
+HEADERS_DIR := ./headers
+HEADERS := -I${HEADERS_DIR} -I${MLX_DIR} -I${LIBFT_DIR}
+CFLAGS := -g -Wall -Werror -Wextra -O3
 OBJS_DIR = obj
 SRCS_DIR = src
 CC = clang
 RM := rm -rf
 
 FUNCTIONS := main.c \
-			 check_input.c
+			 check_input.c \
+			 errors_handler.c
 
 SRCS := ${addprefix ${SRCS_DIR}/,${FUNCTIONS}}
 OBJS := ${addprefix ${OBJS_DIR}/,${SRCS:${SRCS_DIR}/%.c=%.o}}
