@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 17:21:49 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/08/13 18:12:39 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/08/13 18:28:24 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,13 @@ static int	check_complex(char *part)
 {
 	if (*part == '-' || *part == '+')
 		part++;
-	while (*part)
+	while (*part && *part != 'i')
 	{
-		if ((!('0' <= *part && *part <= '9') && *part != '.')
-			|| (*part == 'i' && *(part + 1) != '\0'))
+		if ((!('0' <= *part && *part <= '9') && *part != '.'))
 			return (ERROR);
 		part++;
 	}
+	if (*part == 'i' && *(part + 1) != '\0')
+		return (ERROR);
 	return (OK);
 }
