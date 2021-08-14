@@ -6,12 +6,13 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 17:21:49 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/08/13 19:04:51 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/08/14 13:58:21 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-static int	check_complex(char *b);
+static int	check_imaginary(char *b);
+static int	check_real(char *b);
 
 void	check_input(int argc, char **argv, t_fractol *fractol)
 {
@@ -22,23 +23,22 @@ void	check_input(int argc, char **argv, t_fractol *fractol)
 		if (argc < 4)
 			error_handler(COMPLEX_ARGUMENTS, NULL);
 		fractol->flag = julia;
-		if (check_complex(argv[2]))
+		if (check_real(argv[2]))
 			error_handler(REAL_PART, NULL);
 		fractol->z.real = ft_atod(argv[2]);
-		if (!ft_strrchr(argv[3], 'i') || check_complex(argv[3]))
+		if (!ft_strrchr(argv[3], 'i') || check_imaginary(argv[3]))
 			error_handler(IMAGINARY_PART, NULL);
 		if (*argv[3] == 'i' || (*argv[3] == '-' && *(argv[3] + 1) == 'i'))
 			fractol->z.imaginary = (*argv[3] == 'i') + ((*argv[3] == '-'
-					&& *(argv[3] + 1) == 'i') * (-1.0));
+						&& *(argv[3] + 1) == 'i') * (-1.0));
 		else
 			fractol->z.imaginary = ft_atod(argv[3]);
-		printf("%f\n", fractol->z.imaginary);
 	}
 	else
 		error_handler(AVAILABLE_SETS, NULL);
 }
 
-static int	check_complex(char *part)
+static int	check_imaginary(char *part)
 {
 	if (*part == '-' || *part == '+')
 		part++;
@@ -51,5 +51,19 @@ static int	check_complex(char *part)
 	}
 	if (*part == 'i' && *(part + 1) != '\0')
 		return (ERROR);
+	return (OK);
+}
+
+static int	check_real(char *part)
+{
+	if (*part == '-' || *part == '+')
+		part++;
+	while (*part)
+	{
+		if ((!ft_isdigit(*part) && *part != '.')
+			|| (*part == '.' && !ft_isdigit(*(part + 1))))
+			return (ERROR);
+		part++;
+	}
 	return (OK);
 }
