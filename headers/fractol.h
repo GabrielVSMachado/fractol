@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 16:11:34 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/08/14 16:45:07 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/08/15 14:06:29 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ typedef struct s_complex
 typedef struct s_fractol
 {
 	int			flag;
-	void		*mlx;
-	t_data		img;
 	t_complex	z;
 }				t_fractol;
 
