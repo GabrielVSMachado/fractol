@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 17:21:49 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/08/14 13:58:21 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/08/15 17:07:30 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ static int	check_imaginary(char *part)
 	while (*part && *part != 'i')
 	{
 		if ((!ft_isdigit(*part) && *part != '.')
-			|| (*part == '.' && !ft_isdigit(*(part + 1))))
+			|| (*part == '.' && !ft_isdigit(*(part + 1)))
+			|| (*part == '.' && !ft_isdigit(*(part - 1))))
 			return (ERROR);
 		part++;
 	}
@@ -61,7 +62,8 @@ static int	check_real(char *part)
 	while (*part)
 	{
 		if ((!ft_isdigit(*part) && *part != '.')
-			|| (*part == '.' && !ft_isdigit(*(part + 1))))
+			|| (*part == '.' && !ft_isdigit(*(part + 1)))
+			|| (*part == '.' && !ft_isdigit(*(part - 1))))
 			return (ERROR);
 		part++;
 	}
