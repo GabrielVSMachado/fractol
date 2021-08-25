@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 17:21:49 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/08/15 17:07:30 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/08/15 17:29:40 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ static int	check_imaginary(char *part)
 {
 	if (*part == '-' || *part == '+')
 		part++;
+	else
+		return (ERROR);
 	while (*part && *part != 'i')
 	{
 		if ((!ft_isdigit(*part) && *part != '.')
