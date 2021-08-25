@@ -2,3 +2,5 @@ fractol
 .cache/
 compile_commands.json
 obj/
+libft/*
+minilibx-linux/*
