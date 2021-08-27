@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 08:20:16 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/08/13 13:45:51 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/08/27 17:50:07 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ int	main(int argc, char *argv[])
 
 	if (argc == 1)
 		error_handler(AVAILABLE_SETS, NULL);
+	bzero(&fractol, sizeof(t_fractol));
 	check_input(argc, argv, &fractol);
-	return (0);
+	if (fractol.flag == mandelbrot)
+		fractol.iter = iteration_mandelbrot;
+	init_mlx(&fractol);
+	return (EXIT_SUCCESS);
 }
