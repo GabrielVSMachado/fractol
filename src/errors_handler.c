@@ -6,13 +6,13 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/14 14:14:34 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/08/14 14:15:02 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/08/27 12:52:26 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	error_handler(int n_error, char **to_free)
+void	error_handler(int n_error, t_fractol **to_free)
 {
 	if (to_free == NULL)
 	{
