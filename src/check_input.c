@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 17:21:49 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/08/15 17:29:40 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/08/27 12:33:52 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ void	check_input(int argc, char **argv, t_fractol *fractol)
 		fractol->flag = julia;
 		if (check_real(argv[2]))
 			error_handler(REAL_PART, NULL);
-		fractol->z.real = ft_atod(argv[2]);
+		fractol->c.re = ft_atod(argv[2]);
 		if (!ft_strrchr(argv[3], 'i') || check_imaginary(argv[3]))
 			error_handler(IMAGINARY_PART, NULL);
 		if (*argv[3] == 'i' || (*argv[3] == '-' && *(argv[3] + 1) == 'i'))
-			fractol->z.imaginary = (*argv[3] == 'i') + ((*argv[3] == '-'
+			fractol->c.im = (*argv[3] == 'i') + ((*argv[3] == '-'
 						&& *(argv[3] + 1) == 'i') * (-1.0));
 		else
-			fractol->z.imaginary = ft_atod(argv[3]);
+			fractol->c.im = ft_atod(argv[3]);
 	}
 	else
 		error_handler(AVAILABLE_SETS, NULL);
