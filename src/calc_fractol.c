@@ -5,12 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/27 13:27:33 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/08/27 17:37:19 by gvitor-s         ###   ########.fr       */
+/*   Created: 2021/08/27 18:15:30 by gvitor-s          #+#    #+#             */
+/*   Updated: 2021/08/27 18:15:35 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
 static double	complex_abs(t_complex z);
 
 int	iteration_mandelbrot(t_complex c, t_complex z)

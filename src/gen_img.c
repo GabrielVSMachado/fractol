@@ -6,11 +6,12 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 13:02:04 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/08/27 18:05:32 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/08/27 18:16:40 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
 static void	my_mlx_put_pixel(t_data *data, int x, int y, int color);
 
 void	gen_img(t_fractol *fractol)

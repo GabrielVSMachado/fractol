@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 16:11:34 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/08/27 17:54:42 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/08/27 18:19:20 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ enum e_sets
 	julia = 2
 };
 
-/** check inputs in argc and argv **/
-void	check_input(int	argc, char **argv, t_fractol *fractol);
+/* check inputs in argc and argv */
+void	check_input(int argc, char **argv, t_fractol *fractol);
 
 /* initialize mlx */
 void	init_mlx(t_fractol *fractol);
