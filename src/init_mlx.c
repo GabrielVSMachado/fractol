@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 12:40:55 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/08/27 18:05:51 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/08/30 12:50:00 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ void	init_mlx(t_fractol *fractol)
 	gen_img(fractol);
 	mlx_put_image_to_window(fractol->mlx, fractol->mlx_win, fractol->img.img,
 		0, 0);
+	init_hooks(fractol);
 	mlx_loop(fractol->mlx);
 }
