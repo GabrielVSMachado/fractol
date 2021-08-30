@@ -13,12 +13,13 @@ SRCS_DIR = src
 CC = gcc
 RM := rm -rf
 
-FUNCTIONS := main.c \
-			 check_input.c \
+FUNCTIONS := main.c 			\
+			 check_input.c 		\
 			 errors_handler.c	\
 			 init_mlx.c			\
 			 calc_fractol.c		\
-			 gen_img.c
+			 gen_img.c			\
+			 hooks.c
 
 SRCS := ${addprefix ${SRCS_DIR}/,${FUNCTIONS}}
 OBJS := ${addprefix ${OBJS_DIR}/,${SRCS:${SRCS_DIR}/%.c=%.o}}
