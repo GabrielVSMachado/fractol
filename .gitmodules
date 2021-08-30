@@ -4,3 +4,5 @@
 [submodule "libft"]
 	path = libft
 	url = https://github.com/GabrielVSMachado/libft.git
+[submodule "bar1"]
+	branch = master
