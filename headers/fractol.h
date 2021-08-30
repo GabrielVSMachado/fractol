@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 16:11:34 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/08/27 18:19:20 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/08/30 13:53:24 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 # define TRUE 1
 # define FALSE 0
 # define MAX_ITER 80
-# define WIDTH 600
-# define HEIGHT 600
+# define WIDTH 1024
+# define HEIGHT 768
 # define REAL_INIT -2
 # define REAL_DISTANCE 4
 # define IMG_INIT -2
 # define IMG_DISTANCE 4
+# define NO_VALID_KEY 1
+# define XK_MISCELLANY
 
 # include <math.h>
 # include <stdlib.h>
@@ -30,6 +32,7 @@
 # include "mlx.h"
 # include "libft.h"
 # include "errors.h"
+# include <X11/keysymdef.h>
 
 typedef struct s_data
 {
@@ -77,4 +80,12 @@ void	gen_img(t_fractol *fractol);
 
 /* show errors message on code */
 void	error_handler(int n_error, t_fractol **to_free);
+
+/* hooks */
+
+/* initilize hooks */
+void	init_hooks(t_fractol *fractol);
+
+/* check which key is pressed and make the respectively actions*/
+int		check_key(int key, t_fractol *fractol);
 #endif
