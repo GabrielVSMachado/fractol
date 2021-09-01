@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 16:11:34 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/08/30 13:53:24 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/09/01 16:50:48 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_fractol
 	int			flag;
 	t_complex	c;
 	t_complex	z;
+	double		zoom;
 	t_data		img;
 	void		*mlx;
 	void		*mlx_win;
@@ -88,4 +89,7 @@ void	init_hooks(t_fractol *fractol);
 
 /* check which key is pressed and make the respectively actions*/
 int		check_key(int key, t_fractol *fractol);
+
+/* zooming the image */
+int		get_zoom(int key, int x, int y, t_fractol *fractol);
 #endif
