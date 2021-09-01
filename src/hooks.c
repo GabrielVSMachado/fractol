@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 13:45:52 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/08/30 13:52:28 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/09/01 16:49:39 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	init_hooks(t_fractol *fractol)
 {
 	mlx_key_hook(fractol->mlx_win, check_key, fractol);
+	mlx_mouse_hook(fractol->mlx_win, get_zoom, fractol);
 }
 
 int	check_key(int key, t_fractol *fractol)
@@ -27,4 +28,16 @@ int	check_key(int key, t_fractol *fractol)
 		exit(EXIT_SUCCESS);
 	}
 	return (NO_VALID_KEY);
+}
+
+int	get_zoom(int key, int x, int y, t_fractol *fractol)
+{
+	x = y;
+	y = x;
+	if (key == 5)
+		fractol->zoom *= 1.1;
+	else if (key == 4)
+		fractol->zoom *= 0.9;
+	gen_img(fractol);
+	return (0);
 }
