@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 16:11:34 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/09/01 16:50:48 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/09/02 18:35:50 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ typedef struct s_fractol
 	t_complex	c;
 	t_complex	z;
 	double		zoom;
+	double		offset_x;
+	double		offset_y;
 	t_data		img;
 	void		*mlx;
 	void		*mlx_win;
