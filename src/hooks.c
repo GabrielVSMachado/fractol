@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 13:45:52 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/09/01 16:49:39 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/09/03 18:02:48 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,21 @@ int	check_key(int key, t_fractol *fractol)
 
 int	get_zoom(int key, int x, int y, t_fractol *fractol)
 {
-	x = y;
-	y = x;
-	if (key == 5)
-		fractol->zoom *= 1.1;
-	else if (key == 4)
-		fractol->zoom *= 0.9;
+	double	bef_x;
+	double	bef_y;
+	double	aft_x;
+	double	aft_y;
+
+	bef_x = (REAL_DISTANCE) * (fractol->zoom);
+	bef_y = (IMG_DISTANCE) * (fractol->zoom);
+	if (key == 4)
+	{
+		fractol->zoom *= 0.9f;
+		aft_x = (REAL_DISTANCE) * (fractol->zoom);
+		aft_y = (IMG_DISTANCE) * (fractol->zoom);
+		fractol->offset_x -= ((double)x / WIDTH) * (aft_x - bef_x);
+		fractol->offset_y -= ((double)y / HEIGHT) * (aft_y - bef_y);
+	}
 	gen_img(fractol);
 	return (0);
 }
