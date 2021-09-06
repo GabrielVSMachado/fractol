@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 16:11:34 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/09/02 18:35:50 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/09/06 14:26:31 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # define IMG_INIT -2
 # define IMG_DISTANCE 4
 # define NO_VALID_KEY 1
+# define MWHEEL_UP 4
+# define MWHEEL_DOWN 5
 # define XK_MISCELLANY
 
 # include <math.h>
