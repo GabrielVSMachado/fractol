@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 13:45:52 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/09/03 18:02:48 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/09/06 14:29:59 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,16 @@ int	get_zoom(int key, int x, int y, t_fractol *fractol)
 
 	bef_x = (REAL_DISTANCE) * (fractol->zoom);
 	bef_y = (IMG_DISTANCE) * (fractol->zoom);
-	if (key == 4)
-	{
+	if (key == MWHEEL_UP)
 		fractol->zoom *= 0.9f;
-		aft_x = (REAL_DISTANCE) * (fractol->zoom);
-		aft_y = (IMG_DISTANCE) * (fractol->zoom);
-		fractol->offset_x -= ((double)x / WIDTH) * (aft_x - bef_x);
-		fractol->offset_y -= ((double)y / HEIGHT) * (aft_y - bef_y);
-	}
+	else if (key == MWHEEL_DOWN)
+		fractol->zoom *= 1.1f;
+	if (fractol->zoom > 1.0f)
+		fractol->zoom = 1;
+	aft_x = (REAL_DISTANCE) * (fractol->zoom);
+	aft_y = (IMG_DISTANCE) * (fractol->zoom);
+	fractol->offset_x -= ((double)x / WIDTH) * (aft_x - bef_x);
+	fractol->offset_y -= ((double)y / HEIGHT) * (aft_y - bef_y);
 	gen_img(fractol);
 	return (0);
 }
