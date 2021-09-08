@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 13:02:04 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/09/08 15:13:59 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/09/08 15:24:11 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,16 @@ static void	my_mlx_put_pixel(t_data *data, int x, int y, unsigned int n_iter)
 	unsigned int	*color;
 	int				factor;
 
-	dst = data->addr + ((y * data->line_lenght) + (x << (data->bits_p_pix >> 4)));
+	dst = data->addr + ((y * data->line_lenght)
+			+ (x << (data->bits_p_pix >> 4)));
 	color = (unsigned int *)dst;
 	if (n_iter == MAX_ITER)
 		*color = 0xFF000000;
 	else
 	{
-			factor = (int)(255 * n_iter / MAX_ITER);
-			*color = 0xFF << 24;
-			*color |= (int)pow(factor, 1.5) << 8;
-			*color |= (255 - factor) << 16;
+		factor = (int)(255 * n_iter / MAX_ITER);
+		*color = 0xFF << 24;
+		*color |= (int)pow(factor, 1.5) << 8;
+		*color |= (255 - factor) << 16;
 	}
 }
