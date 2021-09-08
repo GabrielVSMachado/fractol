@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 16:11:34 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/09/06 14:26:31 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/09/08 15:16:30 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 # define TRUE 1
 # define FALSE 0
 # define MAX_ITER 80
-# define WIDTH 1024
-# define HEIGHT 768
+# define WIDTH 600
+# define HEIGHT 600
 # define REAL_INIT -2
 # define REAL_DISTANCE 4
 # define IMG_INIT -2
@@ -77,8 +77,11 @@ void	check_input(int argc, char **argv, t_fractol *fractol);
 /* initialize mlx */
 void	init_mlx(t_fractol *fractol);
 
-/* iteration to mandelbrot */
-int		iteration_mandelbrot(t_complex c, t_complex z);
+/* calculate mandelbrot set */
+int		mandelbrot_set(t_complex c, t_complex z);
+
+/* calculate julia set */
+int		julia_set(t_complex z, t_complex c);
 
 /* generate the image */
 void	gen_img(t_fractol *fractol);
