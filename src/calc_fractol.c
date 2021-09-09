@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 18:15:30 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/09/08 15:35:52 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/09/08 21:57:38 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	mandelbrot_set(t_complex c, t_complex z)
 	}
 	if (n_iter == MAX_ITER)
 		return (MAX_ITER);
-	return (n_iter + 1 - log((complex_abs(z))));
+	return (n_iter + 1 - log(log2(complex_abs(z))));
 }
 
 int	julia_set(t_complex z, t_complex c)
@@ -47,7 +47,7 @@ int	julia_set(t_complex z, t_complex c)
 	}
 	if (n_iter == MAX_ITER)
 		return (MAX_ITER);
-	return (n_iter + 1 - log(complex_abs(z)));
+	return (n_iter + 1 - log(log2(complex_abs(z))));
 }
 
 static double	complex_abs(t_complex z)
