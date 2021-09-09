@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 13:02:04 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/09/08 15:24:11 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/09/08 21:30:39 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,20 @@ void	gen_img(t_fractol *fractol)
 	unsigned int		y_axis;
 	unsigned int		n_iter;
 	unsigned int		pixel;
+	unsigned int					mult_pixel;
 
 	pixel = 0;
-	while (pixel != WIDTH * HEIGHT)
+	mult_pixel = WIDTH * HEIGHT;
+	fractol->scale_x = (REAL_DISTANCE) * fractol->zoom;
+	fractol->scale_y = (IMG_DISTANCE) * fractol->zoom;
+	while (pixel != mult_pixel)
 	{
 		x_axis = pixel % WIDTH;
 		y_axis = pixel / WIDTH;
 		fractol->z.re = fractol->offset_x
-			+ (((double)x_axis / WIDTH) * (REAL_DISTANCE) * fractol->zoom);
+			+ (((double)x_axis / WIDTH) * fractol->scale_x);
 		fractol->z.im = fractol->offset_y
-			+ (((double)y_axis / HEIGHT) * (IMG_DISTANCE) * fractol->zoom);
+			+ (((double)y_axis / HEIGHT) * fractol->scale_y);
 		n_iter = fractol->iter(fractol->z, fractol->c);
 		my_mlx_put_pixel(&fractol->img, x_axis, y_axis, n_iter);
 		pixel++;
