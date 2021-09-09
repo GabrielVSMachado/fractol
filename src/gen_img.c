@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 13:02:04 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/09/08 21:30:39 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/09/08 21:34:12 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	gen_img(t_fractol *fractol)
 	unsigned int		y_axis;
 	unsigned int		n_iter;
 	unsigned int		pixel;
-	unsigned int					mult_pixel;
+	unsigned int		mult_pixel;
 
 	pixel = 0;
 	mult_pixel = WIDTH * HEIGHT;
