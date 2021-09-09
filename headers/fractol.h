@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 16:11:34 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/09/08 21:31:13 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/09/09 19:14:58 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@
 # define WIDTH 600
 # define HEIGHT 600
 # define REAL_INIT -2
-# define REAL_DISTANCE 4
+# define DISTANCE 4
 # define IMG_INIT -2
-# define IMG_DISTANCE 4
 # define NO_VALID_KEY 1
 # define MWHEEL_UP 4
 # define MWHEEL_DOWN 5
@@ -65,6 +64,7 @@ typedef struct s_fractol
 	int			(*iter)();
 	double		scale_x;
 	double		scale_y;
+	int			max_iter;
 }				t_fractol;
 
 enum e_sets
@@ -80,13 +80,13 @@ void	check_input(int argc, char **argv, t_fractol *fractol);
 void	init_mlx(t_fractol *fractol);
 
 /* calculate mandelbrot set */
-int		mandelbrot_set(t_complex c, t_complex z);
+int		mandelbrot_set(t_complex c, t_complex z, int max_iter);
 
 /* calculate julia set */
-int		julia_set(t_complex z, t_complex c);
+int		julia_set(t_complex z, t_complex c, int max_iter);
 
 /* generate the image */
-void	gen_img(t_fractol *fractol);
+int		gen_img(t_fractol *fractol);
 
 /* show errors message on code */
 void	error_handler(int n_error, t_fractol **to_free);
