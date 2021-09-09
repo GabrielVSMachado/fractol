@@ -27,7 +27,7 @@ OBJS := ${addprefix ${OBJS_DIR}/,${SRCS:${SRCS_DIR}/%.c=%.o}}
 ${NAME}: ${OBJS} ${MLX} ${LIBFT}
 		${CC} ${CFLAGS} ${OBJS} ${HEADERS} -o ${NAME} ${LIBRARIES_DIR} ${LIBRARIES}
 
-${OBJS_DIR}/%.o: ${SRCS_DIR}/%.c
+${OBJS_DIR}/%.o: ${SRCS_DIR}/%.c ${HEADERS_DIR}/fractol.h
 		@mkdir -p ${OBJS_DIR}
 		${CC} ${CFLAGS} ${HEADERS} -c $< -o $@
 
