@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 16:11:34 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/09/09 19:14:58 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/09/10 18:39:18 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FRACTOL_H
 # define TRUE 1
 # define FALSE 0
-# define MAX_ITER 80
 # define WIDTH 600
 # define HEIGHT 600
 # define REAL_INIT -2
