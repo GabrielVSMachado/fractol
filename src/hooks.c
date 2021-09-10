@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 13:45:52 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/09/09 19:39:36 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/09/09 22:35:02 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,16 @@ int	check_key(int key, t_fractol *fractol)
 		mlx_destroy_display(fractol->mlx);
 		exit(EXIT_SUCCESS);
 	}
-	return (NO_VALID_KEY);
+	else if (key == XK_Up)
+		fractol->offset_y += 0.1L;
+	else if (key == XK_Right)
+		fractol->offset_x -= 0.1L;
+	else if (key == XK_Down)
+		fractol->offset_y -= 0.1L;
+	else if (key == XK_Left)
+		fractol->offset_x += 0.1L;
+	gen_img(fractol);
+	return (0);
 }
 
 int	get_zoom(int key, int x, int y, t_fractol *fractol)
