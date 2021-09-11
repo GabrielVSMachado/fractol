@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 13:45:52 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/09/10 18:41:32 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/09/11 01:17:03 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ int	check_key(int key, t_fractol *fractol)
 		fractol->offset_y -= 0.1L;
 	else if (key == XK_Left || key == 'a')
 		fractol->offset_x += 0.1L;
+	else if (key == 'b')
+		fractol->blue = (!fractol->blue);
+	else if (key == 'r')
+		fractol->red = (!fractol->red);
+	else if (key == 'g')
+		fractol->green = (!fractol->green);
 	gen_img(fractol);
 	return (0);
 }
