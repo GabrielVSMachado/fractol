@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 16:11:34 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/09/10 19:18:55 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/09/11 18:21:20 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 # include "libft.h"
 # include "errors.h"
 # include <X11/keysymdef.h>
+# include <X11/X.h>
 
 typedef struct s_data
 {
@@ -64,9 +65,6 @@ typedef struct s_fractol
 	double		scale_x;
 	double		scale_y;
 	int			max_iter;
-	int			blue;
-	int			red;
-	int			green;
 }				t_fractol;
 
 enum e_sets
@@ -103,4 +101,7 @@ int		check_key(int key, t_fractol *fractol);
 
 /* zooming the image */
 int		get_zoom(int key, int x, int y, t_fractol *fractol);
+
+/* mouse motion detect */
+int		motion_mouse(int x, int y, t_fractol *fractol);
 #endif
