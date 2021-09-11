@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 13:45:52 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/09/11 18:26:56 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/09/11 18:36:19 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	init_hooks(t_fractol *fractol)
 	mlx_expose_hook(fractol->mlx_win, gen_img, fractol);
 	if (fractol->flag == julia)
 		mlx_hook(fractol->mlx_win, MotionNotify, PointerMotionMask,
-				motion_mouse, fractol);
+			motion_mouse, fractol);
 }
 
 int	check_key(int key, t_fractol *fractol)
@@ -71,8 +71,10 @@ int	get_zoom(int key, int x, int y, t_fractol *fractol)
 
 int	motion_mouse(int x, int y, t_fractol *fractol)
 {
-	fractol->c.re = fractol->offset_x + ((double)x / WIDTH) * (4) * fractol->zoom;
-	fractol->c.im = fractol->offset_y + ((double)y / HEIGHT) * (4) * fractol->zoom;
+	fractol->c.re = fractol->offset_x + ((double)x / WIDTH)
+		* (4) * fractol->zoom;
+	fractol->c.im = fractol->offset_y + ((double)y / HEIGHT)
+		* (4) * fractol->zoom;
 	gen_img(fractol);
 	return (0);
 }
