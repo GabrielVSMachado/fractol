@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 13:45:52 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/09/11 01:17:03 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/09/11 18:26:56 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ void	init_hooks(t_fractol *fractol)
 	mlx_key_hook(fractol->mlx_win, check_key, fractol);
 	mlx_mouse_hook(fractol->mlx_win, get_zoom, fractol);
 	mlx_expose_hook(fractol->mlx_win, gen_img, fractol);
+	if (fractol->flag == julia)
+		mlx_hook(fractol->mlx_win, MotionNotify, PointerMotionMask,
+				motion_mouse, fractol);
 }
 
 int	check_key(int key, t_fractol *fractol)
@@ -36,12 +39,6 @@ int	check_key(int key, t_fractol *fractol)
 		fractol->offset_y -= 0.1L;
 	else if (key == XK_Left || key == 'a')
 		fractol->offset_x += 0.1L;
-	else if (key == 'b')
-		fractol->blue = (!fractol->blue);
-	else if (key == 'r')
-		fractol->red = (!fractol->red);
-	else if (key == 'g')
-		fractol->green = (!fractol->green);
 	gen_img(fractol);
 	return (0);
 }
@@ -56,6 +53,7 @@ int	get_zoom(int key, int x, int y, t_fractol *fractol)
 	{
 		fractol->zoom *= 0.94f;
 		fractol->max_iter += 2;
+		printf("%d\n", fractol->max_iter);
 	}
 	else if (key == MWHEEL_DOWN)
 	{
@@ -63,13 +61,18 @@ int	get_zoom(int key, int x, int y, t_fractol *fractol)
 		fractol->max_iter -= 2;
 	}
 	if (fractol->zoom > 1.0f)
-	{
-		fractol->max_iter = 80;
 		fractol->zoom = 1;
-	}
 	result = (DISTANCE * (fractol->zoom - bef));
 	fractol->offset_x -= ((double)x / WIDTH) * result;
 	fractol->offset_y -= ((double)y / HEIGHT) * result;
+	gen_img(fractol);
+	return (0);
+}
+
+int	motion_mouse(int x, int y, t_fractol *fractol)
+{
+	fractol->c.re = fractol->offset_x + ((double)x / WIDTH) * (4) * fractol->zoom;
+	fractol->c.im = fractol->offset_y + ((double)y / HEIGHT) * (4) * fractol->zoom;
 	gen_img(fractol);
 	return (0);
 }
