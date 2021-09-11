@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 08:20:16 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/09/09 15:58:16 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/09/10 19:39:01 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,7 @@ static void	init_struct(t_fractol *fractol)
 	fractol->offset_x = REAL_INIT;
 	fractol->offset_y = IMG_INIT;
 	fractol->max_iter = 80;
+	fractol->blue = FALSE;
+	fractol->green = TRUE;
+	fractol->red = TRUE;
 }
