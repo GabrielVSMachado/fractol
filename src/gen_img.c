@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 13:02:04 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/09/11 01:19:44 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/09/11 18:19:29 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,11 @@ static void	my_mlx_put_pixel(t_fractol *data, int x, int y, int n_iter)
 {
 	char			*dst;
 	unsigned int	*color;
-	int				factor;
+	double			factor;
 
 	dst = data->img.addr + ((y * data->img.line_lenght)
 			+ (x << (data->img.bits_p_pix >> 4)));
 	color = (unsigned int *)dst;
-	if (n_iter == data->max_iter)
-		*color = 0xFF000000;
-	else
-	{
-		factor = (int)(255 * n_iter / data->max_iter);
-		*color = 0xFF << 24;
-		*color |= ((int)pow(factor, 1.5) << 0) * data->blue;
-		*color |= ((int)pow(factor, 1.5) << 8) * data->green;
-		*color |= ((255 - factor) << 16) * data->red;
-	}
+	factor = (255 * n_iter / (double)data->max_iter);
+	*color = ft_hsv_to_rgb(factor, n_iter != data->max_iter, 1.0);
 }
