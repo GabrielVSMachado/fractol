@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 16:11:34 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/09/10 18:39:18 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/09/10 19:18:55 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,9 @@ typedef struct s_fractol
 	double		scale_x;
 	double		scale_y;
 	int			max_iter;
+	int			blue;
+	int			red;
+	int			green;
 }				t_fractol;
 
 enum e_sets
