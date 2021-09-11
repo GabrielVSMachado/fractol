@@ -6,7 +6,7 @@
 /*   By: gvitor-s <gvitor-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 13:45:52 by gvitor-s          #+#    #+#             */
-/*   Updated: 2021/09/11 18:36:19 by gvitor-s         ###   ########.fr       */
+/*   Updated: 2021/09/11 18:43:59 by gvitor-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	get_zoom(int key, int x, int y, t_fractol *fractol)
 	{
 		fractol->zoom *= 0.94f;
 		fractol->max_iter += 2;
-		printf("%d\n", fractol->max_iter);
 	}
 	else if (key == MWHEEL_DOWN)
 	{
