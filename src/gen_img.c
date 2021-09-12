@@ -47,11 +47,21 @@ static void	my_mlx_put_pixel(t_fractol *data, int x, int y, int n_iter)
 {
 	char			*dst;
 	unsigned int	*color;
-	double			factor;
 
 	dst = data->img.addr + ((y * data->img.line_lenght)
 			+ (x << (data->img.bits_p_pix >> 4)));
 	color = (unsigned int *)dst;
-	factor = (255 * n_iter / (double)data->max_iter);
-	*color = ft_hsv_to_rgb(factor, n_iter != data->max_iter, 1.0);
+	if (n_iter == data->max_iter)
+		*color = 0xFF000000;
+	else
+		*color = data->colors[n_iter];
+}
+
+void	calc_colors(int colors[], int max_iter)
+{
+	int	i;
+
+	i = -1;
+	while (++i < max_iter)
+		colors[i] = ft_hsv_to_rgb(255 * i / (double)max_iter, 1.0, 1.0);
 }
