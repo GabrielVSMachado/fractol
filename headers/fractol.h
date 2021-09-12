@@ -65,6 +65,7 @@ typedef struct s_fractol
 	double		scale_x;
 	double		scale_y;
 	int			max_iter;
+	int			colors[500];
 }				t_fractol;
 
 enum e_sets
@@ -78,6 +79,9 @@ void	check_input(int argc, char **argv, t_fractol *fractol);
 
 /* initialize mlx */
 void	init_mlx(t_fractol *fractol);
+
+/* calculate colors */
+void	calc_colors(int colors[], int max_iter);
 
 /* calculate mandelbrot set */
 int		mandelbrot_set(t_complex c, t_complex z, int max_iter);
