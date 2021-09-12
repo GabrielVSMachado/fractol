@@ -32,13 +32,13 @@ int	check_key(int key, t_fractol *fractol)
 		exit(EXIT_SUCCESS);
 	}
 	else if (key == XK_Up || key == 'w')
-		fractol->offset_y += 0.1L;
+		fractol->offset_y += 0.009L;
 	else if (key == XK_Right || key == 'd')
-		fractol->offset_x -= 0.1L;
+		fractol->offset_x -= 0.009L;
 	else if (key == XK_Down || key == 's')
-		fractol->offset_y -= 0.1L;
+		fractol->offset_y -= 0.009L;
 	else if (key == XK_Left || key == 'a')
-		fractol->offset_x += 0.1L;
+		fractol->offset_x += 0.009L;
 	gen_img(fractol);
 	return (0);
 }
@@ -64,6 +64,7 @@ int	get_zoom(int key, int x, int y, t_fractol *fractol)
 	result = (DISTANCE * (fractol->zoom - bef));
 	fractol->offset_x -= ((double)x / WIDTH) * result;
 	fractol->offset_y -= ((double)y / HEIGHT) * result;
+	calc_colors(fractol->colors, fractol->max_iter);
 	gen_img(fractol);
 	return (0);
 }
