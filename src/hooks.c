@@ -39,6 +39,8 @@ int	check_key(int key, t_fractol *fractol)
 		fractol->offset_y -= 0.009L;
 	else if (key == XK_Left || key == 'a')
 		fractol->offset_x += 0.009L;
+	else if (key == 'm')
+		fractol->motion_mouse = !fractol->motion_mouse;
 	gen_img(fractol);
 	return (0);
 }
@@ -52,15 +54,17 @@ int	get_zoom(int key, int x, int y, t_fractol *fractol)
 	if (key == MWHEEL_UP)
 	{
 		fractol->zoom *= 0.94f;
-		fractol->max_iter += 2;
+		if (fractol->max_iter < 498)
+			fractol->max_iter += 2;
+		printf("%d\n", fractol->max_iter);
 	}
 	else if (key == MWHEEL_DOWN)
 	{
 		fractol->zoom *= 1.1f;
 		fractol->max_iter -= 2;
+		if (fractol->zoom > 1.0f)
+			fractol->zoom = 1;
 	}
-	if (fractol->zoom > 1.0f)
-		fractol->zoom = 1;
 	result = (DISTANCE * (fractol->zoom - bef));
 	fractol->offset_x -= ((double)x / WIDTH) * result;
 	fractol->offset_y -= ((double)y / HEIGHT) * result;
@@ -71,10 +75,13 @@ int	get_zoom(int key, int x, int y, t_fractol *fractol)
 
 int	motion_mouse(int x, int y, t_fractol *fractol)
 {
-	fractol->c.re = fractol->offset_x + ((double)x / WIDTH)
-		* (4) * fractol->zoom;
-	fractol->c.im = fractol->offset_y + ((double)y / HEIGHT)
-		* (4) * fractol->zoom;
-	gen_img(fractol);
+	if (fractol->motion_mouse)
+	{
+		fractol->c.re = fractol->offset_x + ((double)x / WIDTH)
+			* (4) * fractol->zoom;
+		fractol->c.im = fractol->offset_y + ((double)y / HEIGHT)
+			* (4) * fractol->zoom;
+		gen_img(fractol);
+	}
 	return (0);
 }

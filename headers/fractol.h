@@ -66,6 +66,7 @@ typedef struct s_fractol
 	double		scale_y;
 	int			max_iter;
 	int			colors[500];
+	int			motion_mouse;
 }				t_fractol;
 
 enum e_sets
