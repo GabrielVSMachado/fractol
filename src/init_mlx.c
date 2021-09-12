@@ -20,6 +20,7 @@ void	init_mlx(t_fractol *fractol)
 	fractol->img.addr = mlx_get_data_addr(fractol->img.img,
 			&fractol->img.bits_p_pix, &fractol->img.line_lenght,
 			&fractol->img.endian);
+	calc_colors(fractol->colors, fractol->max_iter);
 	init_hooks(fractol);
 	gen_img(fractol);
 	mlx_loop(fractol->mlx);
