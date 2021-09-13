@@ -15,10 +15,16 @@
 # define ERROR -1
 # define OK 0
 
-# define AVAILABLE_SETS 1
-# define COMPLEX_ARGUMENTS 2
-# define REAL_PART 3
-# define IMAGINARY_PART 4
-# define GEN_IMG 5
+enum	e_errors
+{
+	AVAILABLE_SETS = 1,
+	COMPLEX_ARGUMENTS = 2,
+	REAL_PART = 3,
+	IMAGINARY_PART = 4,
+	GEN_IMG = 5,
+	MLX_NULL = 6,
+	MLX_WIN_NULL = 7,
+	MLX_IMG_NULL = 8,
+};
 
 #endif
