@@ -26,6 +26,8 @@ int	main(int argc, char *argv[])
 		fractol.iter = mandelbrot_set;
 	else if (fractol.flag == julia)
 		fractol.iter = julia_set;
+	else if (fractol.flag == mandelbar)
+		fractol.iter = mandelbar_set;
 	init_mlx(&fractol);
 	return (EXIT_SUCCESS);
 }
