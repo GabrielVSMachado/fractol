@@ -48,9 +48,9 @@ FORMATS: +0.0i OR -0.0i\n");
 static void	message_error(int n_error)
 {
 	if (n_error == MLX_NULL)
-		perror("Mlx not initiate");
+		printf("Mlx not initiate\n");
 	else if (n_error == MLX_IMG_NULL)
-		perror("Window not Initialized");
+		printf("Window not Initialized\n");
 	else if (n_error == MLX_IMG_NULL)
-		perror("Image is Null");
+		printf("Image is Null\n");
 }
