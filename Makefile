@@ -24,7 +24,7 @@ FUNCTIONS := main.c 			\
 SRCS := ${addprefix ${SRCS_DIR}/,${FUNCTIONS}}
 OBJS := ${addprefix ${OBJS_DIR}/,${SRCS:${SRCS_DIR}/%.c=%.o}}
 
-${NAME}: ${OBJS} ${MLX} ${LIBFT}
+${NAME}: git_submodule ${OBJS} ${MLX} ${LIBFT}
 		${CC} ${CFLAGS} ${OBJS} ${HEADERS} -o ${NAME} ${LIBRARIES_DIR} ${LIBRARIES}
 
 ${OBJS_DIR}/%.o: ${SRCS_DIR}/%.c ${HEADERS_DIR}/fractol.h
@@ -50,4 +50,7 @@ fclean:	clean
 		${MAKE} fclean -C ${LIBFT_DIR}
 
 re:	fclean all
+
+git_submodule:
+		@git submodule update --init
 .PHONY: all clean fclean re
