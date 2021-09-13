@@ -28,7 +28,7 @@ int	main(int argc, char *argv[])
 		fractol.iter = julia_set;
 	else if (fractol.flag == mandelbar)
 		fractol.iter = mandelbar_set;
-	init_mlx(&fractol);
+	init_mlx(&fractol, argv[1]);
 	return (EXIT_SUCCESS);
 }
 

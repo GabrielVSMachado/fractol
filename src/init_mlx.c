@@ -12,12 +12,12 @@
 
 #include "fractol.h"
 
-void	init_mlx(t_fractol *fractol)
+void	init_mlx(t_fractol *fractol, char *name)
 {
 	fractol->mlx = mlx_init();
 	if (!fractol->mlx)
 		error_handler(MLX_NULL, &fractol);
-	fractol->mlx_win = mlx_new_window(fractol->mlx, WIDTH, HEIGHT, "");
+	fractol->mlx_win = mlx_new_window(fractol->mlx, WIDTH, HEIGHT, name);
 	if (!fractol->mlx_win)
 		error_handler(MLX_WIN_NULL, &fractol);
 	fractol->img.img = mlx_new_image(fractol->mlx, WIDTH, HEIGHT);
