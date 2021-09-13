@@ -15,8 +15,14 @@
 void	init_mlx(t_fractol *fractol)
 {
 	fractol->mlx = mlx_init();
+	if (!fractol->mlx)
+		error_handler(MLX_NULL, &fractol);
 	fractol->mlx_win = mlx_new_window(fractol->mlx, WIDTH, HEIGHT, "");
+	if (!fractol->mlx_win)
+		error_handler(MLX_WIN_NULL, &fractol);
 	fractol->img.img = mlx_new_image(fractol->mlx, WIDTH, HEIGHT);
+	if (!fractol->img.img)
+		error_handler(MLX_IMG_NULL, &fractol);
 	fractol->img.addr = mlx_get_data_addr(fractol->img.img,
 			&fractol->img.bits_p_pix, &fractol->img.line_lenght,
 			&fractol->img.endian);
