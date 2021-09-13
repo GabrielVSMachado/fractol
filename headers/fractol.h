@@ -80,7 +80,7 @@ enum e_sets
 void	check_input(int argc, char **argv, t_fractol *fractol);
 
 /* initialize mlx */
-void	init_mlx(t_fractol *fractol);
+void	init_mlx(t_fractol *fractol, char *name);
 
 /* calculate colors */
 void	calc_colors(int colors[], int max_iter);
