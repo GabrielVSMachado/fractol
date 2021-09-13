@@ -56,7 +56,6 @@ int	get_zoom(int key, int x, int y, t_fractol *fractol)
 		fractol->zoom *= 0.94f;
 		if (fractol->max_iter < 498)
 			fractol->max_iter += 2;
-		printf("%d\n", fractol->max_iter);
 	}
 	else if (key == MWHEEL_DOWN)
 	{
