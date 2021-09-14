@@ -26,7 +26,7 @@ OBJS := ${addprefix ${OBJS_DIR}/,${SRCS:${SRCS_DIR}/%.c=%.o}}
 
 all: 	 ${NAME}
 
-${NAME}: ${MLX} ${LIBFT} ${OBJS}
+${NAME}:${MLX} ${LIBFT} ${OBJS}
 		${CC} ${CFLAGS} ${OBJS} ${HEADERS} -o ${NAME} ${LIBRARIES_DIR} ${LIBRARIES}
 
 ${OBJS_DIR}/%.o: ${SRCS_DIR}/%.c ${HEADERS_DIR}/fractol.h
@@ -52,5 +52,7 @@ fclean:	clean
 		${MAKE} fclean -C ${LIBFT_DIR}
 
 re:	fclean all
+
+bonus: all
 
 .PHONY: all clean fclean re
