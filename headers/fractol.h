@@ -22,7 +22,12 @@
 # define NO_VALID_KEY 1
 # define MWHEEL_UP 4
 # define MWHEEL_DOWN 5
-# define XK_MISCELLANY
+# define MOTION_NOTIFY 06
+# define ESCAPE 0xff1b
+# define LEFT  0xff51
+# define UP    0xff52
+# define RIGHT 0xff53
+# define DOWN  0xff54
 
 # include <math.h>
 # include <stdlib.h>
@@ -32,8 +37,6 @@
 # include "mlx.h"
 # include "libft.h"
 # include "errors.h"
-# include <X11/keysymdef.h>
-# include <X11/X.h>
 
 typedef struct s_data
 {
@@ -42,13 +45,13 @@ typedef struct s_data
 	int		bits_p_pix;
 	int		line_lenght;
 	int		endian;
-}				t_data;
+}	t_data;
 
 typedef struct s_complex
 {
 	double	re;
 	double	im;
-}				t_complex;
+}	t_complex;
 
 typedef struct s_fractol
 {
@@ -67,7 +70,7 @@ typedef struct s_fractol
 	int			max_iter;
 	int			colors[500];
 	int			motion_mouse;
-}				t_fractol;
+}	t_fractol;
 
 enum e_sets
 {
