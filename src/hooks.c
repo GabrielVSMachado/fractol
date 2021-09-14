@@ -18,26 +18,27 @@ void	init_hooks(t_fractol *fractol)
 	mlx_mouse_hook(fractol->mlx_win, get_zoom, fractol);
 	mlx_expose_hook(fractol->mlx_win, gen_img, fractol);
 	if (fractol->flag == julia)
-		mlx_hook(fractol->mlx_win, MotionNotify, PointerMotionMask,
+		mlx_hook(fractol->mlx_win, MOTION_NOTIFY, 1L << 6,
 			motion_mouse, fractol);
 }
 
 int	check_key(int key, t_fractol *fractol)
 {
-	if (key == XK_Escape)
+	if (key == ESCAPE)
 	{
 		mlx_destroy_image(fractol->mlx, fractol->img.img);
 		mlx_destroy_window(fractol->mlx, fractol->mlx_win);
 		mlx_destroy_display(fractol->mlx);
+		free(fractol->mlx);
 		exit(EXIT_SUCCESS);
 	}
-	else if (key == XK_Up || key == 'w')
+	else if (key == UP || key == 'w')
 		fractol->offset_y += 0.009L;
-	else if (key == XK_Right || key == 'd')
+	else if (key == RIGHT || key == 'd')
 		fractol->offset_x -= 0.009L;
-	else if (key == XK_Down || key == 's')
+	else if (key == DOWN || key == 's')
 		fractol->offset_y -= 0.009L;
-	else if (key == XK_Left || key == 'a')
+	else if (key == LEFT || key == 'a')
 		fractol->offset_x += 0.009L;
 	else if (key == 'm')
 		fractol->motion_mouse = !fractol->motion_mouse;
@@ -53,15 +54,16 @@ int	get_zoom(int key, int x, int y, t_fractol *fractol)
 	bef = (fractol->zoom);
 	if (key == MWHEEL_UP)
 	{
-		fractol->zoom *= 0.94f;
+		fractol->zoom *= 0.94;
 		if (fractol->max_iter < 498)
 			fractol->max_iter += 2;
 	}
 	else if (key == MWHEEL_DOWN)
 	{
-		fractol->zoom *= 1.1f;
-		fractol->max_iter -= 2;
-		if (fractol->zoom > 1.0f)
+		fractol->zoom *= 1.1;
+		if (fractol->max_iter != 80)
+			fractol->max_iter -= 2;
+		if (fractol->zoom > 1)
 			fractol->zoom = 1;
 	}
 	result = (DISTANCE * (fractol->zoom - bef));
