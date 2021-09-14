@@ -7,7 +7,7 @@ LIBRARIES  := -lft -lmlx -lX11 -lXext -lm
 LIBRARIES_DIR := -L${LIBFT_DIR} -L${MLX_DIR}
 HEADERS_DIR := ./headers
 HEADERS := -I${HEADERS_DIR} -I${MLX_DIR} -I${LIBFT_DIR}
-CFLAGS := -g -Wall -Werror -Wextra -O3
+CFLAGS := -Wall -Werror -Wextra -O3
 OBJS_DIR = obj
 SRCS_DIR = src
 CC = gcc
@@ -24,7 +24,9 @@ FUNCTIONS := main.c 			\
 SRCS := ${addprefix ${SRCS_DIR}/,${FUNCTIONS}}
 OBJS := ${addprefix ${OBJS_DIR}/,${SRCS:${SRCS_DIR}/%.c=%.o}}
 
-${NAME}: git_submodule ${OBJS} ${MLX} ${LIBFT}
+all: 	 ${NAME}
+
+${NAME}: ${MLX} ${LIBFT} ${OBJS}
 		${CC} ${CFLAGS} ${OBJS} ${HEADERS} -o ${NAME} ${LIBRARIES_DIR} ${LIBRARIES}
 
 ${OBJS_DIR}/%.o: ${SRCS_DIR}/%.c ${HEADERS_DIR}/fractol.h
@@ -32,12 +34,12 @@ ${OBJS_DIR}/%.o: ${SRCS_DIR}/%.c ${HEADERS_DIR}/fractol.h
 		${CC} ${CFLAGS} ${HEADERS} -c $< -o $@
 
 ${MLX}:
+		@git submodule update --init
 		${MAKE} -C ${MLX_DIR}
 
 ${LIBFT}:
 		${MAKE} bonus -C ${LIBFT_DIR}
 
-all: 	${NAME}
 
 clean:
 		${RM} ${OBJS_DIR}
@@ -51,6 +53,4 @@ fclean:	clean
 
 re:	fclean all
 
-git_submodule:
-		@git submodule update --init
 .PHONY: all clean fclean re
