@@ -35,8 +35,8 @@ void	check_input(int argc, char **argv, t_fractol *fractol)
 		else
 			fractol->c.im = ft_atod(argv[3]);
 	}
-	else if (!ft_strcmp(argv[1], "mandelbar"))
-		fractol->flag = mandelbar;
+	else if (!ft_strcmp(argv[1], "burnship"))
+		fractol->flag = burnship;
 	else
 		error_handler(AVAILABLE_SETS, NULL);
 }

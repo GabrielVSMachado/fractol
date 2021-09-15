@@ -19,7 +19,7 @@ void	error_handler(int n_error, t_fractol **to_free)
 	if (to_free == NULL)
 	{
 		if (n_error == AVAILABLE_SETS)
-			printf("THE AVAILABLE SETS ARE:\n mandelbrot;\n julia;\n mandelbar.\n");
+			printf("THE AVAILABLE SETS ARE:\n mandelbrot;\n julia;\n burnship.\n");
 		else if (n_error == COMPLEX_ARGUMENTS)
 			printf("THE COMPLEX NUMBER MUST BE GIVEN IN TWO \
 SEPARATE ARGUMENTS(2, 3).\nWHICH THE NUMBER 2 \

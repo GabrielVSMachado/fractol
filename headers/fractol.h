@@ -76,7 +76,7 @@ enum e_sets
 {
 	mandelbrot = 1,
 	julia = 2,
-	mandelbar = 3
+	burnship = 3
 };
 
 /* check inputs in argc and argv */
@@ -95,7 +95,7 @@ int		mandelbrot_set(t_complex c, t_complex z, int max_iter);
 int		julia_set(t_complex z, t_complex c, int max_iter);
 
 /* newton sin set */
-int		mandelbar_set(t_complex c, t_complex z, int max_iter);
+int		burnship_set(t_complex c, t_complex z, int max_iter);
 
 /* generate the image */
 int		gen_img(t_fractol *fractol);

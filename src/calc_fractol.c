@@ -50,7 +50,7 @@ int	julia_set(t_complex z, t_complex c, int max_iter)
 	return (n_iter + 1 - log(log2(complex_abs(z))));
 }
 
-int	mandelbar_set(t_complex c, t_complex z, int max_iter)
+int	burnship_set(t_complex c, t_complex z, int max_iter)
 {
 	double		tmp;
 	int			n_iter;
@@ -59,7 +59,7 @@ int	mandelbar_set(t_complex c, t_complex z, int max_iter)
 	while (complex_abs(z) <= 4 && n_iter < max_iter)
 	{
 		tmp = pow(z.re, 2) - pow(z.im, 2);
-		z.im = -(2 * z.im * z.re) + c.im;
+		z.im = fabs(2 * z.im * z.re) + c.im;
 		z.re = tmp + c.re;
 		n_iter++;
 	}
