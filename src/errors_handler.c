@@ -40,7 +40,6 @@ FORMATS: +0.0i OR -0.0i\n");
 		if ((*to_free)->mlx)
 			mlx_destroy_display((*to_free)->mlx);
 		message_error(n_error);
-		printf("%s\n", strerror(ENOMEM));
 	}
 	exit (EXIT_FAILURE);
 }
